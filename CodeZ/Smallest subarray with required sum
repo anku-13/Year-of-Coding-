@@ -1,0 +1,56 @@
+#include <vector>
+#include<climits>
+vector<int> smallestSubarray(int sum, vector<int> input) {
+	// Write your code here
+	if(sum<=0)
+	{
+  		vector<int>ans;
+  		return ans;
+	}
+  int si=0;
+  int ei=0;
+  int bestStart=0;
+  int length=INT_MAX;
+  int currentSum=0;
+  while(ei<input.size())
+  {
+    if(currentSum<sum)
+    {
+      currentSum+=input.at(ei);
+      ei++;
+    }
+    else
+    {
+      if(ei-si<length)
+      {
+        bestStart=si;
+        length=ei-si;
+      }
+      currentSum-=input.at(si);
+      si++;
+    }
+  }
+  while(currentSum>=sum)
+  {
+    if(ei-si<length)
+    {
+      bestStart=si;
+      length=ei-si;
+    }
+    
+  
+  currentSum-=input.at(si);
+  si++;
+}
+  if(length==INT_MAX)
+  {
+    vector<int>ans;
+    return ans;
+  }
+  vector<int>output(length);
+  for(int i=0;i<length;i++)
+  {
+    output[i]=input.at(bestStart+i);
+  }
+  return output;
+}
