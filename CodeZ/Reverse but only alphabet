@@ -1,0 +1,46 @@
+int length(char input[]){
+    int len=0;
+    for(int i=0;input[i]!='\0';i++ )
+    {
+        len++;
+    }
+    return len;
+}
+bool Special(char c){
+    if((c>='a' && c<='z')||(c>='A' && c<='Z'))
+    {
+        return false;
+    }
+    else
+    {
+        return true;
+    }
+    
+}
+void reverse(char str[]){
+	// Write your code here
+if(length(str)<=1)
+{
+    return;
+}
+int i=0,j=length(str)-1;
+
+while(i<j){
+if(Special(str[i]))
+{
+    i++;
+}
+else if(Special(str[j]))
+{
+    j--;
+}
+else
+{
+    char temp=str[i];  
+    str[i]=str[j];
+    str[j]=temp;
+    i++;
+    j--;
+}
+}
+}
