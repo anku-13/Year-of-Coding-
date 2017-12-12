@@ -1,0 +1,10 @@
+int countTrailingZerosInFact(int num){
+	// Write your code here
+int n=0;
+  while(num>0)
+  {
+    num=num/5;
+    n+=num;
+  }
+  return n;
+}
