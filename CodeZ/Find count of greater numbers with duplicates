@@ -1,0 +1,50 @@
+#include<cmath>
+long numberOfNumbersWithDuplicates(int digits[],int digitSize,int digitCount[],int digitCountSize,long fact[],int beginIndex)
+{
+  if(beginIndex>=digitSize-1)
+  {
+    return 0;
+  }
+  long count=0;
+  int currentDigit=digits[beginIndex];
+  for(int i=currentDigit+1;i<digitCountSize;i++)
+  {
+    if(digitCount[i]>0)
+    {
+      long currentCount=fact[digitSize-beginIndex-1]/fact[digitCount[i]-1];
+      for(int j=0;j<digitCountSize;j++)
+
+      {
+    	if(i==j)
+        {
+          continue;
+        }
+        currentCount=currentCount/fact[digitCount[j]];
+      }
+      count+=currentCount;
+    }
+    
+  }
+  digitCount[currentDigit]--;
+  count+=numberOfNumbersWithDuplicates(digits,digitSize,digitCount,digitCountSize,fact,beginIndex+1);
+  return count;
+}
+long numberOfNumbersWithDuplicates(long num){
+	// Write your code here
+int numDigits=(int)log10(num)+1;
+  int*digitCount=new int[10];
+  int*digits=new int[numDigits];
+  for(int i=0;i<numDigits;i++)
+  {
+    digits[numDigits-i-1]=(int)(num%10);
+    digitCount[(int)(num%10)]++;
+    num=num/10;
+  }
+  long*fact=new long[numDigits];
+  fact[0]=1;
+  for(int i=1;i<numDigits;i++)
+  {
+    fact[i]=i*fact[i-1];
+  }
+  return numberOfNumbersWithDuplicates(digits,numDigits,digitCount,10,fact,0);
+}
