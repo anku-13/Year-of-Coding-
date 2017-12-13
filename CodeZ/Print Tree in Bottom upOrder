@@ -1,0 +1,45 @@
+// Following is the Binary Tree node structure
+/**************
+class BinaryTreeNode {
+    public : 
+    T data;
+    BinaryTreeNode<T> *left;
+    BinaryTreeNode<T> *right;
+
+    BinaryTreeNode(T data) {
+        this -> data = data;
+        left = NULL;
+        right = NULL;
+    }
+};
+
+***************/
+#include<stack>
+#include<queue>
+void reverseLevelOrder(BinaryTreeNode<int> *root) {
+    // Write your code here
+stack<BinaryTreeNode<int>*>S;
+queue<BinaryTreeNode<int>*>Q;
+Q.push(root);
+  while(Q.empty()==false)
+  {
+    root=Q.front();
+    Q.pop();
+    S.push(root);
+    if(root->right!=NULL)
+    {
+      Q.push(root->right);
+    }
+    if(root->left!=NULL)
+    {
+      Q.push(root->left);
+    }
+  }
+    while(S.empty()==false)
+    {
+      root=S.top();
+      cout<<root->data<<" ";
+      S.pop();
+    }
+  
+}
