@@ -1,0 +1,40 @@
+#include<stack>
+#include<cstring>
+bool checkRedundantBrackets(char *input) {
+	// Write your code here
+stack<char>s;
+  bool flag=false;
+  for(int i=0;i<strlen(input);i++)
+  {
+    if(input[i]!=')')
+    {
+      s.push(input[i]);
+    }
+    else
+    {
+      while(s.top()!='(')
+      {
+        s.pop();
+        flag=true;
+        if(s.empty())
+        {
+          break;
+        }
+      }
+      if(s.empty())
+      {
+continue;
+      }
+      if(flag)
+      {
+        s.pop();
+        flag=false;
+      }
+      else
+      {
+        return true;
+      }
+    }
+  }
+  return false;
+}
