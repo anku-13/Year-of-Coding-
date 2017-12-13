@@ -1,0 +1,29 @@
+#include <vector>
+
+vector<int> maxset(int *a, int size) {
+	// Write your code here
+	long maxSum=0;
+  	long newSum=0;
+  	vector<int>*maxArray=new vector<int>;
+  	vector<int>*newArray=new vector<int>;
+  for(int i=0;i<size;i++)
+  {
+    if(a[i]>0)
+    {
+      newSum+=a[i];
+      newArray->push_back(a[i]);
+    }
+    else
+    {
+      newSum=0;
+      newArray=new vector<int>;
+      
+    }
+    if((maxSum<newSum)||((maxSum==newSum)&&(newArray->size()>maxArray->size())))
+    {
+      maxSum=newSum;
+      maxArray=newArray;
+    }
+  }
+  return*maxArray;
+}
