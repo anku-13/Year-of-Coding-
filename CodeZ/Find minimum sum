@@ -1,0 +1,36 @@
+int min(int a,int b)
+{
+  if(a<b)
+  {
+    return a;
+  }
+  else
+  {
+    return b;
+  }
+}
+int findMinSum(int arr[][160], int n) {
+    // Write your code here
+int i,j;
+  for(i=n-2;i>=0;i--)
+  {
+    arr[n-1][i]=arr[n-1][i]+arr[n-1][i+1];
+  }
+  for(i=n-2;i>=0;i--)
+  {
+    arr[i][n-1]=arr[i][n-1]+arr[i+1][n-1];
+  }
+  for(i=n-2;i>=0;i--)
+  {
+    for(j=n-2;j>i;j--)
+    {
+      arr[i][j]=arr[i][j]+min(arr[i+1][j],arr[i][j+1]);
+    }
+    for(j=n-2;j>i;j--)
+    {
+      arr[j][i]=arr[j][i]+min(arr[j+1][i],arr[j][i+1]);
+    }
+    arr[i][i]=arr[i][i]+min(arr[i+1][i],arr[i][i+1]);
+  }
+  return arr[0][0];
+}
