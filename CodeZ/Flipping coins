@@ -1,0 +1,26 @@
+
+int solve(int arr[],int n)
+{
+	int i,l,r,sum[n+1],maxHeadCount=INT_MIN,modifiedHeadCount;
+  // Write your code here.
+sum[0]=0;
+  for(int i=1;i<=n;i++)
+  {
+    sum[i]=sum[i-1]+arr[i];
+  }
+  for(l=1;l<=n;l++)
+  {
+    for(r=l;r<=n;r++)
+    {
+      modifiedHeadCount=sum[l-1]+((r-l+1)-(sum[r]-sum[l-1]))+(sum[n]-sum[r-1]);
+    
+    if(maxHeadCount<modifiedHeadCount)
+    {
+      maxHeadCount=modifiedHeadCount;
+    }
+  }
+}
+
+return maxHeadCount;
+
+}
