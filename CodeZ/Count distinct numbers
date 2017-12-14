@@ -1,0 +1,25 @@
+#include<map>
+void countDistinct(int *input, int size, int k) {
+   // Write your code here
+map<int,int>m;
+  int i=0;
+  for(;i<k;i++)
+  {
+    m[input[i]]++;
+  }
+  cout<<m.size()<<endl;
+  map<int,int>::iterator j;
+  int x=0;
+  for(;i<size;i++)
+  {
+    m[input[x]]--;
+    if(m[input[x]]==0)
+    {
+      j=m.find(input[x]);
+      m.erase(j);
+    }
+    m[input[i]]++;
+    cout<<m.size()<<endl;
+    x++;
+  }
+}
