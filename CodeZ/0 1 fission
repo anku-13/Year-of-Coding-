@@ -1,0 +1,15 @@
+int solve(long long int n,long long int k)
+{
+	// Write your code here .
+  int sol=0;
+  while(n)
+  {
+    if(k>(1<<(n-1)))
+    {
+      sol^=1;
+      k-=(1<<(n-1));
+    }
+    n--;
+  }
+  return sol;
+}
