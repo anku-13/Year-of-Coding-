@@ -1,0 +1,33 @@
+#include<iostream>
+#include<cmath>
+using namespace std;
+
+
+int main() {
+	// Write your code here
+	int n;
+  cin>>n;
+  int digit=0,num=n;
+  while(num>0)
+  {
+    digit++;
+    num/=10;
+  }
+  int newNum=0;
+  num=n;
+  while(num>0)
+  {
+    int last=num%10;
+    newNum+=pow(last,digit);
+    num/=10;
+  }
+  if(newNum==n)
+  {
+    cout<<"true";
+  }
+  else
+  {
+    cout<<"false";
+  }
+  
+}
