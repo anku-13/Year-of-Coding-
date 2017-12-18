@@ -1,0 +1,32 @@
+#include<cstring>
+void printWellFormedParanthesis(int open,int closed,char str[])
+{
+  if(closed==0)
+  {
+    cout<<str<<endl;
+    return;
+  }
+  if(open!=0)
+  {
+    char*str1=new char[strlen(str)+2];
+    strcpy(str1,str);
+    int len=strlen(str1);
+    str1[len]='(';
+    str1[len+1]='\0';
+    printWellFormedParanthesis(open-1,closed,str1);
+  }
+  if(closed>open)
+  {
+    char*str1=new char[strlen(str)+2];
+    strcpy(str1,str);
+    int len=strlen(str1);
+    str1[len]=')';
+    str1[len+1]='\0';
+    printWellFormedParanthesis(open,closed-1,str1);
+  }
+}
+void printWellFormedParanthesis(int n){
+    // Write your code here
+char str[]={'\0'};
+ printWellFormedParanthesis(n,n,str);
+}
