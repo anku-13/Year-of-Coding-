@@ -1,0 +1,31 @@
+ Node* swapEveryPair(Node *head) {
+    //write your code here
+if(head==NULL || head->next==NULL)
+{
+  return head;
+}
+  Node*first=head,*second=head->next;
+  Node*newHead=NULL,*tail=NULL;
+  while(first!=NULL && second!=NULL)
+  {
+    first->next=second->next;
+    second->next=first;
+    if(newHead==NULL)
+    {
+      newHead=second;
+      tail=first;
+    }
+    else
+    {
+      tail->next=second;
+      tail=first;
+    }
+    first=first->next;
+    if(first==NULL)
+    {
+      break;
+    }
+    second=first->next;
+  }
+  return newHead;
+}
