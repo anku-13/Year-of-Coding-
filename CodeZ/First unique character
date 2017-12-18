@@ -1,0 +1,55 @@
+#include<cstring>
+char firstUniqueChar(char str[]){
+	// Write your code here
+int len=strlen(str);
+  if(len==0)
+  {
+    return '\0';
+  }
+  if(len==1)
+  {
+    return str[0];
+  }
+  int si=0,currentChar=str[0];
+  int freq[26]={0};
+  int index=str[0]-'a';
+  freq[index++];
+  bool flag2=false;
+  for(int i=1;i<len;i++)
+  {
+    index=str[i]-'a';
+    freq[index]++;
+    if(flag2 && freq[index]==1)
+    {
+      flag2=false;
+      currentChar=str[i];
+      si=i;
+    }
+    else if(str[i]==currentChar)
+    {
+      si++;
+      index=str[si]-'a';
+      bool flag=false;
+      while(si<=i)
+      {
+        if(freq[index]==1)
+        {
+          flag=true;
+          break;
+        }
+        si++;
+        index=str[si]-'a';
+      }
+      if(flag)
+      {
+        currentChar=str[si];
+      }
+      else
+      {
+        flag2=true;
+        currentChar='\0';
+      }
+    }
+  }
+  return currentChar;
+}
