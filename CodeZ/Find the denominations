@@ -1,0 +1,25 @@
+ void displayCoins(int amount) {
+	// Write your code here
+if(amount==0)
+  return;
+else if(amount>=10)
+{
+  cout<<"10"<<" ";
+  displayCoins(amount-10);
+}
+  else if(amount>=5)
+  {
+    cout<<"5"<<" ";
+    displayCoins(amount-5);
+  }
+  else if(amount>=2)
+  {
+    cout<<"2"<<" ";
+    displayCoins(amount-2);
+  }
+  else
+  {
+    cout<<"1"<<" ";
+    displayCoins(amount-1);
+  }
+}
