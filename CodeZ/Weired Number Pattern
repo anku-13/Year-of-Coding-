@@ -1,0 +1,37 @@
+void printPattern(int n) {
+    int a[2]={1,1};
+  int*arr=a;
+  int size=2;
+  int newarr[1000],temp[1000];
+  cout<<"1\n";
+  
+  for(int i=1;i<n;i++)
+  {
+    int cp=0,count=1;
+    int j;
+    for(j=0;j<size-1;j++)
+    {
+      cout<<arr[j];
+      if(arr[j]==arr[j+1])
+      {
+        count++;
+      }
+      else
+      {
+        temp[cp]=count;
+        temp[cp+1]=arr[j];
+        count=1;
+        cp=cp+2;
+      }
+    }
+    cout<<arr[j]<<endl;
+    temp[cp]=count;
+    temp[cp+1]=arr[j];
+    for(int k=0;k<1000;k++)
+    {
+      newarr[k]=temp[k];
+    }
+    arr=newarr;
+    size=cp+2;
+  }
+}
