@@ -1,0 +1,19 @@
+ #include<cmath>
+int minSum(int **input, int n) {
+	// Write your code here
+int temp[6];
+  for(int i=0;i<n-1;i++)
+  {
+    temp[0]=input[i][1]+input[i+1][0];
+    temp[1]=input[i][2]+input[i+1][0];
+    temp[2]=input[i][0]+input[i+1][1];
+    temp[3]=input[i][2]+input[i+1][1];
+    temp[4]=input[i][0]+input[i+1][2];
+    temp[5]=input[i][1]+input[i+1][2];
+    input[i+1][0]=min(temp[0],temp[1]);
+    input[i+1][1]=min(temp[2],temp[3]);
+    input[i+1][2]=min(temp[4],temp[5]);
+  }
+ int ans=min(input[n-1][0],min(input[n-1][1],input[n-1][2]));
+  return ans;
+}
