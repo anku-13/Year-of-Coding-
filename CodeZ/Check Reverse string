@@ -1,0 +1,37 @@
+int length(char input[])
+{
+  int len=0;
+  for(int i=0;input[i]!='\0';i++)
+  {
+    len++;
+  }
+  return len;
+}
+bool checkReverse(char input1[],int start,char input2[],int end)
+{
+  if(start>=length(input1))
+  {
+    return true;
+  }
+  if(input1[start]==input2[end])
+  {
+    return checkReverse(input1,start+1,input2,end-1);
+  }
+  else
+  {
+    return false;
+  }
+}
+bool checkReverse(char input1[], char input2[]) {
+    // Write your code here
+int len1=length(input1);
+  int len2=length(input2);
+  if(len1!=len2)
+  {
+    return 0;
+  }
+  else
+  {
+    return checkReverse(input1,0,input2,len2-1);
+  }
+}
