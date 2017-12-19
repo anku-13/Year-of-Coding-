@@ -1,0 +1,28 @@
+int CountNoOfWhiteHats(int HatsCount[],int HatsCountlength) {
+int i,NoOfHats=-1;
+  int HatsFrequency[HatsCountlength];
+  for(int i=0;i<HatsCountlength;i++)
+  {
+    if(HatsCount[i]>HatsCountlength || HatsCount[i]<0)
+      	return -1;
+    HatsFrequency[i]=0;
+  }
+  for(i=0;i<HatsCountlength;i++)
+  {
+    HatsFrequency[HatsCount[i]]++;
+  }
+  if(HatsFrequency[HatsCountlength-1]==HatsCountlength)
+    NoOfHats=HatsCountlength;
+  else
+    for(i=0;i<HatsCountlength;i++)
+    {
+      if(HatsFrequency[i]+i==HatsCountlength && HatsFrequency[i-1]==i)
+      {
+        if(NoOfHats<i)
+        {
+          NoOfHats=i;
+        }
+      }
+    }
+  return NoOfHats;
+	}
