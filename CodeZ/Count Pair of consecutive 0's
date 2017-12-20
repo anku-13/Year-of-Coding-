@@ -1,0 +1,13 @@
+#include<cmath>
+int countOfConsecutivePairsOfZero(int n) {
+    // Write your code here
+if(n==1)
+{
+  return 0;
+}
+  if(n==2 || n==3)
+    return 1;
+  int smallAns=(pow(2,n)/12);
+  return 2*smallAns+1;
+}
+ 
