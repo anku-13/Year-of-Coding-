@@ -1,0 +1,69 @@
+#include <cstring>
+#include<unordered_map>
+
+class Pair{
+  public:
+  int count;
+  int firstIndex;
+  Pair()
+  {
+    
+  }
+  Pair(int c,int i)
+  {
+    count=c;
+    firstIndex=i;
+  }
+};
+string highestOccurringWord(char *input) {
+	// Write your code here
+unordered_map<string,Pair>frequency;
+  string word="";
+  int si=0;
+  int len=strlen(input);
+  for(int i=0;i<len;i++)
+  {
+    if(input[i]!=' ')
+    {
+      word+=input[i];
+    }
+    else
+    {
+      int count=1,index=si;
+      if(frequency.count(word)>0)
+      {
+        count=frequency[word].count+1;
+        index=frequency[word].firstIndex;
+      }
+      Pair newPair(count,index);
+      frequency[word]=newPair;
+      word="";
+      si=i+1;
+    }
+  }
+  int count=1,index=si;
+  if(frequency.count(word)>0)
+  {
+    count=frequency[word].count+1;
+    index=frequency[word].firstIndex;
+  }
+  Pair newPair(count,index);
+  frequency[word]=newPair;
+  unordered_map<string,Pair>::iterator it=frequency.begin();
+  unordered_map<string,Pair>::iterator max=it;
+  it++;
+  while(it!=frequency.end())
+  {
+    if(it->second.count>max->second.count)
+    {
+      max=it;
+    }
+    else if(it->second.count==max->second.count)
+      
+    {
+      max=it->second.firstIndex<max->second.firstIndex?it:max;
+    }
+    it++;
+  }
+  return max->first;
+}
