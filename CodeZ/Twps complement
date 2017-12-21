@@ -1,0 +1,45 @@
+
+void printTwosComplement(char *binary, int size) {
+    	// Write your code here
+ char*onesComp=new char[size+1];
+  char*twosComp=new char[size+2];
+  int i,carry=1;
+  for(int i=0;i<size;i++)
+  {
+    if(binary[i]=='1')
+    {
+      onesComp[i]='0';
+    }
+    else if(binary[i]=='0')
+    {
+      onesComp[i]='1';
+    }
+  }
+  onesComp[size]='\0';
+  for(i=size;i>0;i--)
+  {
+    if(onesComp[i-1]=='1'&& carry==1)
+    {
+      twosComp[i]='0';
+    }
+    else if(onesComp[i]=='0' && carry==1)
+    {
+      twosComp[i]='1';
+      carry=0;
+    }
+    else
+    {
+      twosComp[i]=onesComp[i-1];
+    }
+  }
+  twosComp[size+1]='\0';
+  if(carry==1)
+  {
+    twosComp[0]='1';
+  }
+  else
+  {
+    twosComp=twosComp+1;
+  }
+  cout<<twosComp<<endl;
+}
