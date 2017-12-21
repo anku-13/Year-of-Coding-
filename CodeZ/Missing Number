@@ -1,0 +1,27 @@
+#include<climits>
+int findMissing(int arr[],int low,int high,int diff)
+{
+  if(high<=low)
+    return INT_MAX;
+  int mid=low+(high-low)/2;
+  if(arr[mid+1]-arr[mid]!=diff)
+    return (arr[mid]+diff);
+  if(mid>0 && arr[mid]-arr[mid-1]!=diff)
+    return (arr[mid-1]+diff);
+  if(arr[mid]==arr[0]+mid*diff)
+    return findMissing(arr,mid+1,high,diff);
+  return findMissing(arr,low,mid-1,diff);
+}
+int findMissingTerm(int arr[], int n) {  
+	// Write your code here    
+int d1=arr[1]-arr[0];
+  int d2=arr[2]-arr[1];
+  int i=3;
+  while(d1!=d2)
+  {
+    d1=d2;
+    d2=arr[i]-arr[i-1];
+  }
+  int diff=d1;
+  return findMissing(arr,0,n-1,diff);
+}
