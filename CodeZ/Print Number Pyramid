@@ -1,0 +1,37 @@
+void printPattern(int n) {
+    // Write your code here
+    for(int i=1;i<=n;i++)
+    {
+      int j=1;
+      while(j<i)
+      {
+        cout<<" ";
+        j++;
+      }
+      int num=i;
+      while(j<=n)
+      {
+        cout<<num;
+        num++;
+        j++;
+      }
+      cout<<endl;
+    }
+  for(int i=n-1;i>=1;i--)
+  {
+    int j=1;
+    while(j<i)
+    {
+      cout<<" ";
+      j++;
+    }
+    int num=i;
+    while(j<=n)
+    {
+      cout<<num;
+      num++;
+      j++;
+    }
+    cout<<endl;
+  }
+}
