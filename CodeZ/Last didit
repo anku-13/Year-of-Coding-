@@ -1,0 +1,37 @@
+#include<sstream>
+#include<string>
+#include<cmath>
+int findLastDigit(string a,string b)
+{
+  int alength=0,blength=0;
+  for(alength=0;a[alength]!='\0';alength++);
+  for(blength=0;b[blength]!='\0';blength++);
+  if(alength==0 || blength==0)
+    return -1;
+  int lastDigit=0,i;
+  long n=0;
+  int lastOfa=(int)a[alength-1]-48;
+  if(b[blength-1]=='0'&& blength==1)
+    return 1;
+  if(lastOfa==0 || lastOfa==1 ||lastOfa==5 || lastOfa==6)
+    return lastOfa;
+  for(i=0;i<blength;i++)
+  {
+    n=n*10+(int)b[i]-48;
+  }
+  n=n%4;
+  if(n==0)
+    n=4;
+  lastDigit=((int)pow(lastOfa,n))%10;
+  return lastDigit;
+    
+}
+int findLastDigit(int a, int b) {
+    // Write your code here
+ostringstream oss,oss2;
+  oss<<a;
+  string input1=oss.str();
+  oss2<<b;
+  string input2=oss2.str();
+  return findLastDigit(input1,input2);
+}
