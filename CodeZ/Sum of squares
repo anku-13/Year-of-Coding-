@@ -1,0 +1,55 @@
+pair<int*,int>sieve()
+{
+  int*primes=new int[100001];
+  int*temp=new int[1000001];
+  int k=0;
+  for(int i=2;i<1000001;i++)
+  {
+    if(temp[i]==0)
+    {
+      primes[k++]=i;
+      for(int j=2*i;j<1000001;j+=i)
+      {
+        temp[j]=1;
+      }
+    }
+  }
+  return make_pair(primes,k);
+}
+void func(long long n)
+{
+	// Write your code here
+pair<int*,int>p=sieve();
+  int*primes=p.first;
+  int k=p.second;
+  if(n==0)
+  {
+    cout<<"Yes\n";
+    return;
+  }
+  int flag=0;
+  for(int i=0;i<k;i++)
+  {
+    int t=0;
+    while(n%primes[i]==0)
+    {
+      if((primes[i]-3)%4==0)
+        t++;
+      n=n/primes[i];
+    }
+    if(t%2!=0)
+    {
+      flag=1;
+      cout<<"No\n";
+      break;
+    }
+  }
+  if(flag==0 && (n-3)%4!=0)
+  {
+    cout<<"Yes\n";
+  }
+  else if(flag==0)
+  {
+    cout<<"No\n";
+  }
+}
