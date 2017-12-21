@@ -1,0 +1,47 @@
+ typedef int boolean;
+#define true 1
+#define false 0
+ void printInDiagonalForm(int **arr,int m,int n) {
+		//Write your code here
+   int i=0,j=0,x=0,changesMade,io=0,jo=0;
+   boolean change=true;
+   for(x=0;x<m*n;x++)
+   {
+     changesMade=0;
+     cout<<arr[i][j]<<" ";
+     if(!change)
+     {
+       i++;
+       j--;
+     }
+     else
+     {
+       j++;
+       i--;
+     }
+     if(i<0)
+     {
+       i++;
+       change=!change;
+       changesMade++;
+     }
+     if(i==m)
+     {
+       i--;
+       j=jo+1;
+       change=!change;
+       changesMade++;
+     }
+     if(j==n)
+     {
+       j--;
+       i=io+1;
+       change=!change;
+       changesMade++;
+     }
+     if(changesMade>1)
+       change=!change;
+     io=i;
+     jo=j;
+   }
+	}
