@@ -1,0 +1,17 @@
+  void printMinima(int *array, int n) {
+  	//Write your code here
+int i,forward=1,backward=0;
+  for(i=0;i<n;i++)
+  {
+    if(array[i]<=array[backward]&&array[i]<=array[forward])
+    {
+      cout<<i<<" ";
+    }
+    backward=i;
+    forward++;
+    if(forward==n)
+    {
+      forward--;
+    }
+  }
+}
