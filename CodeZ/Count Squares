@@ -1,0 +1,6 @@
+int countSquares(int n) {
+	//Write code here 
+int Ans=((n)*(n+1)*((2*n)+1))/6;
+  return Ans;
+  
+}
