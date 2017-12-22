@@ -1,0 +1,27 @@
+#include<cmath>
+int smallestNum(int n)
+{
+//Write code here 
+  int cD=9,ans=0,e=0,product=1,la=0,c=0;
+  while((cD!=1)||(ans<n))
+  {
+    if(c==1)
+      la=la+cD*(int)pow(10,e-1);
+    cD=9;
+    while(1)
+    {
+      if((n%((int)(cD*product)))==0)
+      {
+        break;
+      }
+      cD--;
+    }
+    product=product*cD;
+    ans=ans+cD*(int)pow(10,e);
+    e++;
+    c=1;
+  }
+  if(la>n)
+    return la;
+  return ans;
+}
