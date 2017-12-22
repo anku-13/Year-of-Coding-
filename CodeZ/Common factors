@@ -1,0 +1,28 @@
+#include<iostream>
+using namespace std;
+#include<cmath>
+long gcd(long a,long b)
+{
+  if(b==0)
+    return a;
+  else
+    return gcd(b,a%b);
+}
+void func(long a, long b)
+{
+	
+  // Write your code here
+  long k,ans=0;
+  k=gcd(a,b);
+  float q=sqrt(k);
+  for(long j=1;j<=q;j++)
+  {
+    if(k%j==0)
+    {
+      ans+=2;
+      if(j==k/j)
+        ans--;
+    }
+  }
+  cout<<ans;
+}
