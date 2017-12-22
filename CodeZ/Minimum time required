@@ -1,0 +1,35 @@
+ long calculateSum(int array[1000],int n,long mid,int m)
+{
+  int j;
+  long sum=0;
+  for(j=0;j<n;j++)
+  {
+    sum+=mid/array[j];
+    if(sum>m)
+      break;
+  }
+  return sum;
+}
+long minimumTime(int array[], int n, int m) {
+    /* Don't write main().
+     * Don't read input, they are passed as function argument.
+     * Return output and don't print it.
+     * Taking input and printing output is handled automatically.
+     * n - array size
+     * m - number of items to be produced
+     */
+	long i=1,mid,sum=0,timeReqd=m*array[n-1];
+  	while(i<timeReqd)
+    {
+      sum=0;
+      mid=(i+timeReqd)/2;
+      sum=calculateSum(array,n,mid,m);
+      if(sum>=m)
+      {
+        timeReqd=mid;
+      }
+      else
+        i=mid+1;
+    }
+  return timeReqd;
+}
