@@ -1,0 +1,22 @@
+#include<iostream>
+using namespace std;
+
+int main() {
+    // Write your code here
+    // Take input and print output accordingly.
+    int n;
+  	cin>>n;
+  	int no=0,i;
+  cin>>i;
+  while(i==0 || i==1)
+  {
+    no=(no*2+i);
+    if(no%n==0)
+      cout<<"divisible"<<endl;
+    else
+      cout<<"not divisible"<<endl;
+    no=no%n;
+    cin>>i;
+  }
+  return 0;
+}
