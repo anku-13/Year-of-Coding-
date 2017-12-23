@@ -1,0 +1,10 @@
+#include<iostream>
+#include<string>
+using namespace std;
+void whoWins(int noOfCoins){
+	//code - here
+if(noOfCoins%6==0)
+  cout<<"Moni"<<endl;
+else
+  cout<<"Raman"<<endl;
+}
