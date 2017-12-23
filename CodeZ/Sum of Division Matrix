@@ -1,0 +1,17 @@
+long findSum(int n) {
+    /* Don't write main().
+     * Don't read input, it is passed as function argument.
+     * Return output and don't print it.
+     * Taking input and printing output is handled automatically.
+     */
+    long long ans=0;
+  long long div,mod;
+  for(int i=1;i<=n;i++)
+  {
+    div=n/i;
+    mod=i-n%i;
+    ans+=(div*(div+1)*i)/2;
+    ans-=(mod-1)*div;
+  }
+  return ans;
+}
