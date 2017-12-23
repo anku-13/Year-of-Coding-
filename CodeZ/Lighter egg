@@ -1,0 +1,9 @@
+#include<cmath>
+
+int solve(int num)
+{
+	// Write your code here
+  for(int i=1; ;i++)
+    if(pow(3,i)>=num)
+      return i;
+}
