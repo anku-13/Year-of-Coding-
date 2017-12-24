@@ -1,0 +1,20 @@
+int isPalin(int n)
+{
+//Write code here ; return 0 for false, 1 for true
+  int arr[32],i=0,j;
+  while(n!=0)
+  {
+    if(n%2==0)
+      arr[i]=0;
+    else
+      arr[i]=1;
+    n=n/2;
+    i++;
+  }
+  for(j=0;j<i/2;j++)
+  {
+    if(arr[j]!=arr[i-j-1])
+      return 0;
+  }
+  return 1;
+}
