@@ -1,0 +1,26 @@
+ int NoFinderFrom0ToN(int x)
+{
+  int count=10;
+  if(x<10)
+  {
+    return x+1;
+  }
+  else
+  {
+    int n=x,a;
+    n=x/10;
+    a=n;
+    while(a/10!=0)
+      a=a/10;
+    if(x%10<a)
+      n--;
+    count+=n;
+  }
+  return count;
+}
+int findNos(int x1, int x2) {
+	
+	if(x1<x2)
+      return NoFinderFrom0ToN(x2)-NoFinderFrom0ToN(x1-1);
+   	  return NoFinderFrom0ToN(x1)-NoFinderFrom0ToN(x2-1);
+	}
