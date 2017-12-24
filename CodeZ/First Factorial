@@ -1,0 +1,20 @@
+int gcd(int i,int x)
+{
+  if(i==0)
+    return x;
+  if(x==0)
+    return i;
+  if(i>x)
+    return gcd(i-x,x);
+  return gcd(i,x-i);
+}
+int func(int x) {
+	//Write your code here
+   int fact=1;
+   while(x!=1)
+   {
+     x/=gcd(fact,x);
+     fact++;
+   }
+   return fact-1;
+		}
