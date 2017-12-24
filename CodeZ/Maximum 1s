@@ -1,0 +1,19 @@
+int maxOne(int **arr,int n,int m)
+{
+//Write code here 
+  int max=0,row=-1,i,j,count;
+  for(i=0;i<n;i++)
+  {
+    count=0;
+    for(j=0;j<m;j++)
+    {
+      count+=arr[i][j];
+    }
+    if(count>max)
+    {
+      max=count;
+      row=i;
+    }
+  }
+  return row;
+}
