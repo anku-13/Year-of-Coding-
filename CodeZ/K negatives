@@ -1,0 +1,24 @@
+int MaximiseSumafterKnegations(int input[], int size, int k) {
+    /* Don't write main().
+     * Don't read input, they are passed as function arguments.
+     * Return output and don't print it.
+     * Taking input and printing output is handled automatically.
+     */
+    while(k--)
+    {
+      int min=INT_MAX,pos=-1;
+      for(int i=0;i<size;i++)
+      {
+        if(min>input[i])
+        {
+          min=input[i];
+          pos=i;
+        }
+      }
+      input[pos]=-input[pos];
+    }
+  int sum=0;
+  for(int z=0;z<size;z++)
+    sum+=input[z];
+  return sum;
+}
