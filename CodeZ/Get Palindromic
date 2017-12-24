@@ -1,0 +1,24 @@
+#include<bits/stdc++.h>
+void palinGenerator(int n)
+{
+	// Write your code here
+  int k=sqrt(n);
+  for(int i=1;i<=n;i++)
+  {
+    long long t=i,u=i,v=i/10;
+    while(u>0)
+    {
+      t=t*10+u%10;
+      u=u/10;
+    }
+    if(t<=n)
+      cout<<t<<'\n';
+    t=i;
+    while(v>0){
+      t=t*10+v%10;
+      v=v/10;
+    }
+    if(t<=n)
+      cout<<t<<'\n';
+  }
+}
