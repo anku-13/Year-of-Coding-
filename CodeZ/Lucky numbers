@@ -1,0 +1,5 @@
+int solve(int num) {
+ 
+   
+return (192+(num-1)*250);
+}
