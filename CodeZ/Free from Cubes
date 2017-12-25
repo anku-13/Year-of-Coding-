@@ -1,0 +1,33 @@
+void cubeFree(int num)
+{
+	// Write your code here
+  int*arr=new int[99];
+  for(int j=0;j<99;j++)
+  arr[j]=pow(j+2,3);
+  int*ar=new int[1000001];
+  for(int j=8;j<1000001;j++)
+  {
+    for(int k=0;k<99;k++)
+    if(j%arr[k]==0)
+    {
+      ar[j]=1;
+      break;
+    }
+  }
+  ar[1]=1;
+  int temp=1;
+  for(int j=2;j<1000001;j++)
+  {
+    if(ar[j]!=1)
+      ar[j]=++temp;
+  }
+  if(num==1)
+  {
+    cout<<num;
+    return;
+  }
+  if(ar[num]!=1)
+    cout<<ar[num];
+  else
+    cout<<"Not Cube Free";
+}
