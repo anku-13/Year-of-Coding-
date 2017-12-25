@@ -1,0 +1,25 @@
+  #include <string>
+#include<unordered_map>
+void addNames(string *names, int n) {
+    /* Don't write main().
+     * Don't read input, it is passed as function argument.
+     */
+    unordered_map<string,int>alreadyPresent;
+  for(int i=0;i<n;i++)
+  {
+    string currentName=names[i];
+    if(alreadyPresent.count(currentName)==0)
+    {
+      alreadyPresent[currentName]=1;
+      cout<<"OK"<<endl;
+    }
+    else
+    {
+      int count=alreadyPresent[currentName];
+      string newName=currentName + to_string(count);
+      alreadyPresent[newName]=1;
+      alreadyPresent[currentName]=count+1;
+      cout<<newName<<endl;
+    }
+  }
+}
