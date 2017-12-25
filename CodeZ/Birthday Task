@@ -1,0 +1,24 @@
+#include <iostream>
+using namespace std;
+int minTime(int n, int X[], int Y[]){
+    /* Don't write main().
+     * Don't read input, it is passed as function argument.
+     * Just Return the required answer.
+     * Taking input and printing output is handled automatically.
+     */    
+  int sumX=0,sumY=0;
+  for(int i=0;i<n;i++)
+  {
+    if(i%2==0)
+    {
+      sumX+=X[i];
+      sumY+=Y[i];
+    }
+    else
+    {
+      sumX+=Y[i];
+      sumY+=X[i];
+    }
+  }
+  return min(sumX,sumY);
+}
