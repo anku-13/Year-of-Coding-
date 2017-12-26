@@ -1,0 +1,27 @@
+int squareDigits(int n)
+{
+  int sum=0;
+  while(n)
+  {
+    sum+=(n%10)*(n%10);
+    n=n/10;
+  }
+  return sum;
+}
+bool findHappyNumber(int n){
+
+	/* Don't write main().
+ 	Don't read input, it is passed as function argument.
+	Return output and don't print it.
+	Taking input and printing output is handled automatically.
+	*/
+int slow,fast;
+  slow=fast=n;
+  do
+  {
+    slow=squareDigits(slow);
+    fast=squareDigits(squareDigits(fast));
+  }while(slow!=fast);
+  return (fast==1);
+
+}
