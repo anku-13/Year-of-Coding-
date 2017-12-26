@@ -1,0 +1,26 @@
+
+void arrange(int arr[],int n){
+ 
+  /* Don't write main().
+     Don't read input, it is passed as function argument.
+     Arrange elements in the array "arr" given as input.
+     Taking input and printing output is handled automatically.
+  */
+	int i=0,j=n-1;
+  int num=1;
+  while(i<j)
+  {
+    arr[i]=num;
+    num++;
+    i++;
+    arr[j]=num;
+    num++;
+    j--;
+  }
+  if(i==j)
+  {
+    arr[i]=num;
+  }
+
+
+}
