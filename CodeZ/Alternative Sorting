@@ -1,0 +1,16 @@
+void sortAlternative(vector<int> arr) {
+	//write your code here
+  sort(arr.begin(),arr.end());
+  int n=arr.size();
+  int i=0,j=n-1;
+  while(i<j)
+  {
+    cout<<arr[j]<<" "<<arr[i]<<" ";
+    i++;
+    j--;
+  }
+  if(n%2!=0)
+  {
+    cout<<arr[i]<<" ";
+  }
+}
