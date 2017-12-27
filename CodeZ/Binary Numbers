@@ -1,0 +1,11 @@
+int solve(long long n)
+{
+	// Write your code here
+  int c=0;
+  while(n!=0)
+  {
+    c++;
+    n=n & (n-1);
+  }
+  return c;
+}
