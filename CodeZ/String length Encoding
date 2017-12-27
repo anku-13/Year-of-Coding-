@@ -1,0 +1,21 @@
+void showEncoding(string str) {
+	//write your code here
+  string outstring="";
+  outstring+=str.at(0);
+  int count=1;
+  for(int i=1;i<str.length();i++)
+  {
+    if(str.at(i)==str.at(i-1))
+    {
+      count++;
+    }
+    else
+    {
+      outstring+=to_string(count);
+      count=1;
+      outstring+=str.at(i);
+    }
+  }
+  outstring+=to_string(count);
+  cout<<outstring<<endl;
+}
