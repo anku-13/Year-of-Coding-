@@ -1,0 +1,40 @@
+bool isPrime(int num)
+{
+  for(int i=2;i<num;i++)
+  {
+    if(num%i==0)
+    {
+      return false;
+    }
+  }
+  return true;
+}
+void reversePrime(int N) {
+	// write your code here
+	vector<int>arr;
+  for(int i=2;i<N;i++)
+  {
+    if(isPrime(i))
+    {
+      if(i<10)
+      {
+        cout<<i<<" ";
+      }
+      else
+      {
+        int revNum=0;
+        int newNum=i;
+        while(newNum>0)
+        {
+          int tempNum=newNum%10;
+          revNum=revNum*10+tempNum;
+          newNum=newNum/10;
+        }
+        if(isPrime(revNum)&& revNum<=N)
+        {
+          cout<<i<<" ";
+        }
+      }
+    }
+  }
+}
