@@ -1,0 +1,24 @@
+void arrangeArray (int a[], int size) {
+	//write your code here
+  int oddIndex=1;
+  int evenIndex=0;
+  while(1)
+  {
+    while(evenIndex<size && a[evenIndex]%2==0)
+    {
+      evenIndex+=2;
+    }
+    while(oddIndex<size && a[oddIndex]%2==0)
+    {
+      oddIndex+=2;
+    }
+    if(evenIndex<size && oddIndex<size)
+    {
+      int temp=a[evenIndex];
+      a[evenIndex]=a[oddIndex];
+      a[oddIndex]=temp;
+    }
+    else
+      break;
+  }
+}
