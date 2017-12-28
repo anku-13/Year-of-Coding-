@@ -1,0 +1,27 @@
+ 	
+	int evenCount(int *input, int n) {
+
+     	unordered_map<int,int>m;
+      for(int i=0;i<n;i++)
+      {
+        int key=input[i];
+        if(m.count(key)==0)
+        {
+          m[key]=1;
+        }
+        else
+        {
+          m[key]++;
+        }
+      }
+      for(int j=0;j<n;j++)
+      {
+        if((m[input[j]])%2==0)
+        {
+          return input[j];
+        }
+      }
+     	return -1;
+     	
+ 	}
+
