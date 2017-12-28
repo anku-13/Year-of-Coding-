@@ -1,0 +1,17 @@
+int getPassingCars(int A[], int N){
+  //write your code here
+  int count=0;
+  int totalOfZeros=0;
+  for(int i=0;i<N;i++)
+  {
+	if(A[i]==0)
+    {
+      totalOfZeros++;
+    }
+    else if(A[i]==1)
+    {
+      count=count+totalOfZeros;
+    }
+  }
+  return count;
+}
