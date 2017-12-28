@@ -1,0 +1,14 @@
+
+void product_without_self(int arr[], int size, long result[]){
+	//write your code here
+  result[size-1]=1;
+  for(int i=size-2;i>=0;i--)
+  {
+    result[i]=result[i+1]*arr[i+1];
+  }
+  int left=1;
+  for(int i=0;i<size;i++)
+  {
+    result[i]*=left;
+  }
+}
