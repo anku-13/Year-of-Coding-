@@ -1,0 +1,24 @@
+bool isSumOfConsecutive(int n) {
+	//write your code here
+int counter=1;
+  int i=1,sum=0;
+  while(sum<n && i<n)
+  {
+    sum+=i;
+    if(sum>n)
+    {
+      sum=0;
+      i=counter;
+      counter++;
+    }
+    i++;
+  }
+  if(sum==n)
+  {
+    return true;
+  }
+  else
+  {
+    return false;
+  }
+}
