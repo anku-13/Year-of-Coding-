@@ -1,0 +1,15 @@
+void segmentSumsMatrix(int arr[], int answer[][1000], int N) {
+	//write your code
+	for(int i=0;i<N;i++)
+    {
+      for(int j=i;j>=0;j--)
+      {
+        for(int k=i;k<N;k++)
+        {
+          answer[j][k]+=arr[i];
+          answer[k][j]+=arr[i];
+        }
+      }
+      answer[i][i]-=arr[i];
+    }
+}
