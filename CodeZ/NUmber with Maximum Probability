@@ -1,0 +1,15 @@
+int simpleGame(int n,int m)
+{
+	if(n==m && n==1)
+    {
+      return 1;
+    }
+  if(m<=n/2)
+  {
+    return m+1;
+  }
+  else
+  {
+    return m-1;
+  }
+}
