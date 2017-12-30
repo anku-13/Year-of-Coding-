@@ -1,0 +1,11 @@
+#include<cmath>
+int specialPolynomial(int x, int n){
+int e=0;
+  int sum=0;
+  while(sum<=n)
+  {
+    sum+=pow(x,e);
+    e++;
+  }
+  return e-2;
+}
