@@ -1,0 +1,9 @@
+long long countOfPairs(int n,int m)
+{
+	long long count=0;
+  for(int i=1;i<=n;i++)
+  {
+    count=count+(i+m)/5 -i/5;
+  }
+  return count;
+}
