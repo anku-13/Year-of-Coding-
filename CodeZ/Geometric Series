@@ -1,0 +1,10 @@
+bool isGeometricProgression(int sequence[], int n) {
+	for(int i=1;i<n;i++)
+    {
+      if(sequence[i]*sequence[0]!=sequence[i-1]*sequence[1])
+      {
+        return false;
+      }
+    }
+  return true;
+}
