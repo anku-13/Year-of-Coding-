@@ -1,0 +1,13 @@
+int minimalNumberOfCoins(int coins[], int price, int N) {
+	int result=0;
+  for(int i=N-1;i>=0;i--)
+  {
+    result+=price/coins[i];
+    price%=coins[i];
+  }
+  if(price)
+  {
+    return -1;
+  }
+  return result;
+}
