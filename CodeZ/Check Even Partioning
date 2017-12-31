@@ -1,0 +1,7 @@
+bool evenPartitionCheck(int a) {
+	if(a%2==0 && a>2)
+      return true;
+  	else
+      return false;
+
+}
