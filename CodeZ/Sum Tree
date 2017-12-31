@@ -1,0 +1,34 @@
+void preOrder(BinaryTreeNode<int>*root,vector<int>&output)
+{
+  if(root==NULL)
+  {
+	return;
+  }
+  output.push_back(root->data);
+  preOrder(root->left,output);
+  preOrder(root->right,output);
+}
+void convertTree(BinaryTreeNode<int>*root)
+{
+  if(root==NULL)
+    return;
+  int sum=0;
+  if(root->left!=NULL)
+  {
+    sum+=root->left->data;
+  }
+  if(root->right!=NULL)
+  {
+    sum+=root->right->data;
+  }
+  root->data=sum;
+  convertTree(root->left);
+  convertTree(root->right);
+}
+vector<int> sumTree(BinaryTreeNode<int>* root){
+   convertTree(root);
+  vector<int>output;
+  preOrder(root,output);
+  return output;
+
+}
