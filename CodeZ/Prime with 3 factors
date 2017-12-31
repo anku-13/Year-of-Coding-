@@ -1,0 +1,31 @@
+using namespace std;
+#include<algorithm>
+int*sieveOfEras()
+{
+  int*sieve=new int[1000001];
+  for(int i=2;i*i<=1000001;i++)
+  {
+    if(sieve[i]==0)
+    for(int j=2*i;j<=1000001;j+=i)
+    sieve[j]=1;
+  }
+  return sieve;
+}
+void tPrimes(long long *ar,int n)
+{
+int*sieve=sieveOfEras();
+  double temp;
+  for(int i=0;i<n;i++)
+  {
+    if(ar[i]==1)
+    {
+      printf("No\n");
+      continue;
+    }
+    temp=sqrt(ar[i]);
+    if(floor(temp)==temp && sieve[int(temp)]==0)
+      printf("YES\n");
+    else
+      printf("No\n");
+  }
+}
