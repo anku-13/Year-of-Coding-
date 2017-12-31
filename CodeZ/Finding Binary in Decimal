@@ -1,0 +1,17 @@
+int helper(int n,int k,int count)
+{
+  if(k>n)
+  {
+    return count;
+  }
+  count=helper(n,10*k,count);
+  count=helper(n,10*k+1,count);
+  if(k<=n)
+    count++;
+  return count;
+}
+int countOfNumbers(int n)
+{
+
+return helper(n,1,0);  
+}
