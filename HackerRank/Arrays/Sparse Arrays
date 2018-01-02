@@ -1,0 +1,43 @@
+#include <cmath>
+#include <cstdio>
+#include <vector>
+#include <iostream>
+#include <algorithm>
+using namespace std;
+
+
+int main() {
+    /* Enter your code here. Read input from STDIN. Print output to STDOUT */   
+
+    string arr[1000],q[1000];
+    int count[1000];
+    int N,Q,i,j;
+    cin>>N;
+    for(i=0;i<N;i++)
+    {
+        cin>>arr[i];
+    }
+    cin>>Q;
+    for(j=0;j<Q;j++)
+    {
+        cin>>q[j];
+        count[j]=0;
+    }
+    for(j=0;j<Q;j++)
+    {
+        for(i=0;i<N;i++)
+        {
+            if(arr[i]==q[j])
+            {
+                count[j]++;
+            }
+        }
+    }
+    for(i=0;i<Q;i++)
+    {
+        cout<<count[i];
+        cout<<endl;
+    }
+    
+    return 0;
+}
